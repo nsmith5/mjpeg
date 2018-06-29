@@ -1,3 +1,4 @@
+// Package mjpeg implements mjpeg streaming handlers with a simple API.
 package mjpeg
 
 import (

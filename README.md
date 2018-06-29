@@ -1,4 +1,4 @@
-# Simple MJPeg Streaming
+# Simple Motion JPEG Streaming
 
 [![GoDoc](https://godoc.org/github.com/gorilla/websocket?status.svg)](https://godoc.org/github.com/gorilla/websocket)
 

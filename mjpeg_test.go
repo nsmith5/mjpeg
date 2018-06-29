@@ -11,7 +11,6 @@ import (
 )
 
 func Example() {
-
 	stream := func() image.Image {
 		img := image.NewGray(image.Rect(0, 0, 100, 100))
 		for i := 0; i < 100; i++ {

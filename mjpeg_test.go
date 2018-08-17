@@ -43,7 +43,12 @@ func Example() {
 		return img
 	}
 
+	handler := mjpeg.Handler{
+		Stream:  stream,
+		Options: &jpeg.Options{Quality: 60},
+	}
+
 	mux := http.NewServeMux()
-	mux.Handle("/stream", mjpeg.Handler{Stream: stream, Options: &jpeg.Options{60}})
+	mux.Handle("/stream", handler)
 	log.Fatal(http.ListenAndServe(":8080", mux))
 }

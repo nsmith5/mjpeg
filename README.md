@@ -1,6 +1,6 @@
 # Simple Motion JPEG Streaming
 
-[![GoDoc](https://godoc.org/github.com/gorilla/websocket?status.svg)](https://godoc.org/github.com/gorilla/websocket)
+[![GoDoc](https://godoc.org/code.nfsmith.ca/nsmith/mjpeg?status.svg)](https://godoc.org/code.nfsmith.ca/nsmith/mjpeg)
 
 Super simple mjpeg streaming in Go.
 

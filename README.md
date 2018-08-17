@@ -25,7 +25,7 @@ func stream() image.Image {
 
 func main() {
     mux := http.NewServeMux()
-    mux.Handle("/stream", mjpeg.ImageStream(stream))
+    mux.Handle("/stream", mjpeg.Handler{Stream: stream, Option: nil})
     log.Fatal(http.ListenAndServe(":8080", mux))
 }
 ```

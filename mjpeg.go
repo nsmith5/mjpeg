@@ -8,11 +8,18 @@ import (
 	"net/http"
 )
 
-// An ImageStream is a function that, when called repeatedly, returns successive
+// An Stream is a function that, when called repeatedly, returns successive
 // images
-type ImageStream func() image.Image
+type Stream func() image.Image
 
-func (s ImageStream) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+// A Handler is an http.Handler that streams mjpeg using an image stream. Encoding
+// quality can be controlled using the Options parameters.
+type Handler struct {
+	Stream  Stream
+	Options *jpeg.Options
+}
+
+func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "multipart/x-mixed-replace; boundary=frame")
 	for {
 		_, err := io.WriteString(w, "\r\n--frame\r\nContent-Type: image/jpeg\r\n\r\n")
@@ -20,7 +27,7 @@ func (s ImageStream) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 
-		err = jpeg.Encode(w, s(), &jpeg.Options{Quality: 10})
+		err = jpeg.Encode(w, h.Stream(), h.Options)
 		if err != nil {
 			break
 		}

@@ -44,6 +44,6 @@ func Example() {
 	}
 
 	mux := http.NewServeMux()
-	mux.Handle("/stream", mjpeg.Handler{stream, &jpeg.Options{60}})
+	mux.Handle("/stream", mjpeg.Handler{Stream: stream, Options: &jpeg.Options{60}})
 	log.Fatal(http.ListenAndServe(":8080", mux))
 }

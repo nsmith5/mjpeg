@@ -8,14 +8,10 @@ import (
 	"net/http"
 )
 
-// An Stream is a function that, when called repeatedly, returns successive
-// images
-type Stream func() image.Image
-
 // A Handler is an http.Handler that streams mjpeg using an image stream. Encoding
 // quality can be controlled using the Options parameters.
 type Handler struct {
-	Stream  Stream
+	Stream  func() image.Image
 	Options *jpeg.Options
 }
 

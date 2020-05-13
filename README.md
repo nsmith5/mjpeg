@@ -1,6 +1,8 @@
 # Simple Motion JPEG Streaming
 
-[![GoDoc](https://godoc.org/github.com/nsmith5/mjpeg?status.svg)](https://godoc.org/github.com/nsmith5/mjpeg)
+| Docs   | Build |
+|:-------|:------|
+| [![GoDoc](https://godoc.org/github.com/nsmith5/mjpeg?status.svg)](https://godoc.org/github.com/nsmith5/mjpeg) | [![Build Status](https://cloud.drone.io/api/badges/nsmith5/mjpeg/status.svg)](https://cloud.drone.io/nsmith5/mjpeg) |
 
 Super simple mjpeg streaming in Go.
 
@@ -21,7 +23,7 @@ import (
 
 func main() {
     stream := mjpeg.Handler{
-        Stream: func()  image.Image {
+        Next: func()  (image.Image, error) {
             img := image.NewGray(image.Rect(0, 0, 100, 100))
             for i := 0; i < 100; i++ {
                 for j := 0; j < 100; j++ {
@@ -30,7 +32,7 @@ func main() {
                     img.SetGray(i, j, gray)
                 }
             }
-            return img
+            return img, nil
         },
         Options: &jpeg.Options{Quality: 80},
     }

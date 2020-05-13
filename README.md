@@ -1,12 +1,12 @@
 # Simple Motion JPEG Streaming
 
-[![GoDoc](https://godoc.org/code.nfsmith.ca/nsmith/mjpeg?status.svg)](https://godoc.org/code.nfsmith.ca/nsmith/mjpeg)
+[![GoDoc](https://godoc.org/github.com/nsmith5/mjpeg?status.svg)](https://godoc.org/github.com/nsmith5/mjpeg)
 
 Super simple mjpeg streaming in Go.
 
 ## Getting Started
 
-Get to package with `go get code.nfsmith.ca/nsmith/mjpeg`. An MJPeg stream
+Get to package with `go get github.com/nsmith5/mjpeg`. An MJPeg stream
 can be built using any function that takes no arguments and returns an image.
 
 ```go
@@ -16,7 +16,7 @@ import (
     "log"
     "net/http"
 
-    "code.nfsmith.ca/nsmith/mjpeg"
+    "github.com/nsmith5/mjpeg"
 )
 
 func main() {
